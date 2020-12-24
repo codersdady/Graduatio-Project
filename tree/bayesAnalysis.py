@@ -39,10 +39,10 @@ class bayes(object):
 
     """数据的准备，属性的初始化"""
     def prepareData(self, url):
-        data_set = pd.read_csv(url)
+        data_set = pd.read_excel(url)
         self.train_data, self.test_data = train_test_split(data_set, test_size=0.2, random_state=4)
         self.data_set = data_set
-        self.buildBayes(None)
+        self.buildBayes('self')
         self.fitBayes(data_set)
         all_index = list(data_set.columns)
         self.target = all_index[-1]

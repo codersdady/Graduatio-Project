@@ -25,8 +25,8 @@ class ListNode(object):
 
 
 class BuildList():
-    head = ListNode(None)   #列表头节点，不存储数据
-    tail = ListNode(None, head, head)   #列表尾结点，不存储数据
+    head = ListNode([])   #列表头节点，不存储数据
+    tail = ListNode([], head, head)   #列表尾结点，不存储数据
     head.setBefore(tail)
     head.setNext(tail)
     size = 0    #列表节点个数，初始为0
