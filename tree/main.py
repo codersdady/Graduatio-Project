@@ -18,7 +18,7 @@ target_size = 0
 if __name__ == '__main__':
     #构建贝叶斯网络，计算属性对结果的影响度
     b = bayes()
-    b.prepareData('./data.xlsx')
+    b.prepareData('./q.xls')
     data, input_index = b.pridict()
     target_size = b.target_size
     # iris = datasets.load_breast_cancer()

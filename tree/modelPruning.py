@@ -56,14 +56,22 @@ class modelPruning(object):
             self.i += 1
 
         if self.i == 0:
-            print("无法压缩模型！")
+            print("超出模型精度阈值，无法压缩模型！")
             return
-        if accuracy < self.model_accuracy :
-            print("模型的准确率为：" + str(b_accuracy))
-            url = self.url + str(self.i - 1) + '.pkl'
-            preDnn.save_model(b_model, url)
-            self.m_size = self.getSize(url)
-            print("模型的大小为：" + str(self.getSize(url)))
+        if accuracy < self.model_accuracy:
+            self.head = self.head.before
+            if len(self.head.index) == 1:
+                print("模型的准确率为：" + str(b_accuracy))
+                url = self.url + str(self.i - 1) + '.pkl'
+                preDnn.save_model(b_model, url)
+                self.m_size = self.getSize(url)
+                print("模型的大小为：" + str(self.getSize(url)))
+            else:
+                print("模型的准确率为：" + str(b_accuracy))
+                url = self.url + str(self.i - 1) + '.pkl'
+                preDnn.save_model(b_model, url)
+                self.m_size = self.getSize(url)
+                print("模型的大小为：" + str(self.getSize(url)))
         else:
             url = self.url + str(self.i) + '.pkl'
             preDnn.save_model(model, url)
