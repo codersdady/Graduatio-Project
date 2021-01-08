@@ -1,5 +1,6 @@
 from torchpruner.attributions import RandomAttributionMetric  # or any of the methods above
 from torchpruner.pruner import Pruner
+from src.torchpruner.torchpruner.attributions import RandomAttributionMetric
 
 import torch
 if __name__ == '__main__':

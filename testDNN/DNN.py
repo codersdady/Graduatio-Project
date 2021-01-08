@@ -59,7 +59,7 @@ class prepare_DNN():
     def save_model(self, model, url):
         torch.save(model, url)
 
-    def train_DNN(self,):
+    def train_DNN(self):
         # we want to use GPU if we have one
         data = pd.read_excel("./q.xls")
         trainData, testData = train_test_split(data, test_size=0.2, random_state=4)
